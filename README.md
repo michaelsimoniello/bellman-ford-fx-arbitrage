@@ -45,8 +45,8 @@ A tolerance value (tol) is used to address floating-point precision limitations 
 
 Usage:
 
-Run the program by calling the testRates function in the main block of the project3.py file. The other files (p3tests, p3currencies, and p3vertex) can be left alone. 
-However, if you want to custimize the input (i.e. to use more recent exchange rate data) modify the test cases in p3tests.
+First, download the main file (project3.py) and the three provided files (p3tests, p3currencies, and p3vertex) to your computer. Run the program by calling the testRates function in the main block of the project3.py file (should already be there). The other files (p3tests, p3currencies, and p3vertex) can be left alone. 
+However, if you want to custimize the input (i.e. to use more recent exchange rate data) modify the test cases in p3tests. Always run the code in the main file.
 
 
 Testing: 4 cases and Expected OUTPUTS
