@@ -30,7 +30,20 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
         list of int: A list of vertex ranks representing the negative cost
         cycle, or an empty list if none exists.
         """
-    ##### Your implementation goes here. #####
+    # Initialize the start vertex distance to 0 and all others to infinity
+    for vertex in adjList:
+        vertex.dist = float('inf')
+        vertex.prev = None
+    adjList[0].dist = 0
+
+    # |V| - 1 iterations to determine the shortest path to each vertex
+    for i in range(len(adjList) - 1):
+        for u in adjList:
+            for v in u.neigh:
+                weight = adjMat[u.rank][v.rank]
+                if v.dist > u.dist + weight + tol: # Includes tolerance
+                    v.dist = u.dist + weight
+                    v.prev = u
     return []
     ##### Your implementation goes here. #####
 
