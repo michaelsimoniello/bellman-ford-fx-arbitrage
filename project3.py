@@ -62,20 +62,27 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
     if not changed_Vertex:
         return []
 
+    # Initialize list to contain cycle/set to check which vertices were visited
     cycle = []
+    visited = set()
     current = changed_Vertex
 
-    #create the cycle by tracing it back
-    while current.rank not in cycle:
-        cycle.append(current.rank)
+    # Detect cycle by visiting nodes repeatedly until same node is seen twice
+    while current.rank not in visited:
+        visited.add(current.rank)
         current = current.prev
 
-    # Add the starting vertex again to close the cycle
-    cycle.append(current.rank)
+    # The cycle starts and ends at same vertex
+    start = current.rank
 
-    # Reverse the list if needed to maintain proper order
-    cycle.reverse()
-    return cycle
+    # Trace the cycle path to construct the list named "cycle"
+    while True:
+        cycle.append(current.rank)
+        current = current.prev
+        if current.rank == start:
+            cycle.append(start)
+            break
+    return cycle[::-1]  # Reverses the cycle to correct the order
 
 
 """
