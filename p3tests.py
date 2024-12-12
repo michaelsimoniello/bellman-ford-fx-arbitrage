@@ -1,7 +1,9 @@
 """
-Math 560
-Project 3
-Fall 2021
+Math 260
+Bellman-Ford Arbitrage Final Project
+
+Michael Simoniello
+Date: 12/12/2024
 
 p2tests.py
 """
