@@ -15,7 +15,7 @@ from p3tests import *
 """
 detectArbitrage
 """
-#testing commit
+#testing commit 2
 
 
 def detectArbitrage(adjList, adjMat, tol=1e-15):
