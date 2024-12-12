@@ -49,51 +49,46 @@ Run the program by calling the testRates function in the main block of the proje
 However, if you want to custimize the input (i.e. to use more recent exchange rate data) modify the test cases in p3tests.
 
 
-Testing: 4 cases
+Testing: 4 cases and Expected OUTPUTS
 
 1. Small Arbitrage Example (Exchange Rates 0)
 Description: This test case uses a small set of 4 currencies with exchange rates manually set to create an arbitrage opportunity.
-Example: 
-1
- 
-USD
-→
-0.82
- 
-EUR
-→
-129.7
- 
-JPY
-→
-12
- 
-LIRA
-→
-0.0008
- 
-USD
-1USD→0.82EUR→129.7JPY→12LIRA→0.0008USD.
-Validation:The program detects a negative cost cycle and identifies the correct arbitrage cycle with the expected profit. This verifies that the algorithm correctly handles small, controlled input data.
 
-3. Real-World Exchange Rates (Exchange Rates 1)
+Expected Output: The program detects a negative cost cycle and identifies the correct arbitrage cycle(Euro,
+Lira,
+Dollar,
+Euro) with the expected profit (For gain of: 0.020998 Euros). This verifies that the algorithm correctly handles small, controlled input data.
+
+2. Real-World Exchange Rates (Exchange Rates 1)
 Description: A real-world dataset with exchange rates between 14 currencies, where no arbitrage opportunities exist.
 Example: Rates include 
 USD, 
 EUR, 
 JPY, etc., based on actual market data.
-Validation: The program should report that no negative cost cycle is found. This confirms the algorithm works correctly when no arbitrage opportunities exist.
 
-5. Underpriced USD (Exchange Rates 2)
+Expected Output: The program should report that no negative cost cycle is found. This confirms the algorithm works correctly when no arbitrage opportunities exist.
+
+3. Underpriced USD (Exchange Rates 2)
 Description: A modified version of the real-world dataset where the USD is deliberately underpriced relative to the British Pound.
 Example: The rate 
 USD
 →
 GBP
 USD→GBP is artificially adjusted to introduce an arbitrage opportunity.
-Validation: The program detects the negative cost cycle corresponding to this contrived arbitrage. This ensures the algorithm can identify specific, introduced arbitrage opportunities in large datasets.
 
-7. Multiple Adjustments (Exchange Rates 3)
+Expected Output: The program detects the negative cost cycle corresponding to this contrived arbitrage (USD,
+AUD,
+GBP,
+USD). Expected profit: (For gain of: 0.013019 USDs) This ensures the algorithm can identify specific, introduced arbitrage opportunities in large datasets.
+
+4. Multiple Adjustments (Exchange Rates 3)
 Description: Another modified dataset where multiple currencies (e.g., USD, JPY, and SAR) are either underpriced or overpriced relative to others.
 Example: Adjustments create multiple potential arbitrage cycles, increasing complexity.
-Validation: The program detects at least one valid negative cost cycle, demonstrating robustness in handling more complex graphs with multiple cycles.
+
+Expected Output: The program detects at least one valid negative cost cycle, (HKD
+JPY,
+INR,
+SAR,
+HKD)  Expected profit: (For gain of: 0.049645 HKDs), demonstrating robustness in handling more complex graphs with multiple cycles.
+
+Note: The function logRates that was detailed in the code plan was left out because its goal is accomplished by rates2mat.
