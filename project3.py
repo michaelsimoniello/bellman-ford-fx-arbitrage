@@ -37,6 +37,7 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
     adjList[0].dist = 0
 
     # |V| - 1 iterations to determine the shortest path to each vertex
+    # u represents the vertex and v represents its neighbors
     for i in range(len(adjList) - 1):
         for u in adjList:
             for v in u.neigh:
