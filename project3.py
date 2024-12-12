@@ -24,6 +24,15 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
 rates2mat
 """
 def rates2mat(rates):
+    """
+       rates2mat- Converts exchange rates into a graph adjacency matrix with
+       edge weights as negative logs.
+
+       Input: rates (list of list of floats): Exchange rates matrix.
+
+       Output: list of list of floats: Adjacency matrix with weights as -log(
+       exchange rate).
+           """
     return [[-math.log(R) for R in row] for row in rates]
 
 
