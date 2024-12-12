@@ -45,8 +45,22 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
                 if v.dist > u.dist + weight + tol: # Includes tolerance
                     v.dist = u.dist + weight
                     v.prev = u
-    return []
-    ##### Your implementation goes here. #####
+
+    # Check for negative cost cycles by iterating one more time and checking
+    # if there is still a shorter path
+    changed_Vertex = None
+    for u in adjList:
+        for v in u.neigh:
+            weight = adjMat[u.rank][v.rank]
+            if v.dist > u.dist + weight + tol:  # Includes tolerance
+                changed_Vertex = v
+                break
+        if changed_Vertex:
+            break
+
+    # Return empty list if no negative cost cycle is found
+    if not changed_Vertex:
+        return []
 
 """
 rates2mat
