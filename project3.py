@@ -62,6 +62,22 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
     if not changed_Vertex:
         return []
 
+    cycle = []
+    current = changed_Vertex
+
+    #create the cycle by tracing it back
+    while current.rank not in cycle:
+        cycle.append(current.rank)
+        current = current.prev
+
+    # Add the starting vertex again to close the cycle
+    cycle.append(current.rank)
+
+    # Reverse the list if needed to maintain proper order
+    cycle.reverse()
+    return cycle
+
+
 """
 rates2mat
 """
