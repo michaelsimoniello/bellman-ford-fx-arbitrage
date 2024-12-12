@@ -16,6 +16,20 @@ from p3tests import *
 detectArbitrage
 """
 def detectArbitrage(adjList, adjMat, tol=1e-15):
+    """
+    detectArbitrage- Detects arbitrage opportunities in a graph represented by
+    adjacency list and matrix.
+
+    Inputs:
+        adjList (list of Vertex): Adjacency list representation of the graph.
+        adjMat (list of list of floats): Adjacency matrix with edge weights
+        as -log(exchange rate).
+        tol (float): Tolerance value for floating-point precision.
+
+    Output:
+        list of int: A list of vertex ranks representing the negative cost
+        cycle, or an empty list if none exists.
+        """
     ##### Your implementation goes here. #####
     return []
     ##### Your implementation goes here. #####
